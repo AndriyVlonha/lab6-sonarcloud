@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
-      - name: SonarCloud Scan
+      -       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -31,4 +31,6 @@ jobs:
             -Dsonar.projectKey=AndriyVlonha_lab6-sonarcloud
             -Dsonar.organization=andriyvlonha
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.cfamily.compile-commands=build/compile_commands.json
+            -Dsonar.c.file.suffixes=-
+            -Dsonar.cpp.file.suffixes=-
+            -Dsonar.objc.file.suffixes=-
